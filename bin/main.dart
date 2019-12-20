@@ -12,6 +12,6 @@ void main(List<String> arguments) async {
     var t1 = DateTime.fromMillisecondsSinceEpoch(an1.time);
     var t2 = DateTime.fromMillisecondsSinceEpoch(an2.time);
 
-    print(HoursMinutesSecondsFromSeconds(t1.difference(t2).inSeconds));
+    print(TimeStringFromSeconds(t1.difference(t2).inSeconds));
   }
 }
