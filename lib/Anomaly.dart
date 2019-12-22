@@ -21,7 +21,7 @@ class Anomaly {
 }
 
 Future<List<Anomaly>> fetch() async {
-  var url = 'https://anomaly-tracker.glitch.me/api/get/50';
+  var url = 'http://155.138.228.215:4000/api/get/200';
   final res = await http.get(url, headers: {'Accept': 'aplication/json'});
   var jsonData = json.decode(res.body) as List;
   var anomalies = jsonData.map((m) => Anomaly.fromJson(m)).toList();
