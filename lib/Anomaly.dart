@@ -10,10 +10,11 @@ part 'Anomaly.g.dart';
 
 @JsonSerializable()
 class Anomaly {
-  final int time;
-  final String result;
+  int time;
+  String result;
+  DateTime get dateTime => DateTime.fromMillisecondsSinceEpoch(this.time);
 
-  Anomaly({this.time, this.result});
+  Anomaly(this.time, this.result);
 
   factory Anomaly.fromJson(Map<String, dynamic> json) => _$AnomalyFromJson(json);
 
@@ -21,7 +22,7 @@ class Anomaly {
 }
 
 Future<List<Anomaly>> fetch() async {
-  var url = 'http://155.138.228.215:4000/api/get/200';
+  var url = 'https://api.anomaly-tracker.xyz/api/get/200';
   final res = await http.get(url, headers: {'Accept': 'aplication/json'});
   var jsonData = json.decode(res.body) as List;
   var anomalies = jsonData.map((m) => Anomaly.fromJson(m)).toList();

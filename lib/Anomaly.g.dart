@@ -8,8 +8,8 @@ part of 'Anomaly.dart';
 
 Anomaly _$AnomalyFromJson(Map<String, dynamic> json) {
   return Anomaly(
-    time: json['time'] as int,
-    result: json['result'] as String,
+    json['time'] as int,
+    json['result'] as String,
   );
 }
 
