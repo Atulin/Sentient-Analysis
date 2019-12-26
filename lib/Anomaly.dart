@@ -22,7 +22,7 @@ class Anomaly {
 }
 
 Future<List<Anomaly>> fetch() async {
-  var url = 'https://api.anomaly-tracker.xyz/api/get/200';
+  var url = 'https://api.anomaly-tracker.xyz/api/get/100';
   final res = await http.get(url, headers: {'Accept': 'aplication/json'});
   var jsonData = json.decode(res.body) as List;
   var anomalies = jsonData.map((m) => Anomaly.fromJson(m)).toList();
